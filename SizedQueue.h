@@ -14,10 +14,10 @@
 #include <freertos/semphr.h>
 #endif
 
-template <typename T> 
+template <typename T, const size_t sz> 
 class SizedQueue {
-    T *q;
-    size_t size;
+    T q[sz];
+    const size_t size = sz;
     size_t last;
     size_t first;
 #ifdef HAVE_SEMAPHORE
@@ -36,17 +36,14 @@ class SizedQueue {
     }
 
 public:
-    SizedQueue(int num) {
-        q = new T[num];
+    SizedQueue() {
         last = first = 0;
-        size = num;
         #if defined(HAVE_SEMAPHORE)
         sem = xSemaphoreCreateMutex();
         #endif
     }
 
     ~SizedQueue() {
-        delete[] q;
         #if defined(HAVE_SEMAPHORE)
         vSemaphoreDelete(sem);
         #endif

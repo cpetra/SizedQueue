@@ -27,7 +27,7 @@ typedef struct {
 /* The queue, capable of holding 2x the expected fill rate
  *  
  */
-SizedQueue<_svals> m_queue(20);
+SizedQueue<_svals, 20> m_queue;
 
 static void show()
 {
@@ -50,12 +50,12 @@ void setup()
 }
 
 
-static int counter = 0;
+int i = 0;
 
 void loop()
 {
   _svals v;
-  v.v1 = counter++;
+  v.v1 = i++;
   v.v2 = random(100);
   m_queue.push(v);
   delay(100);
