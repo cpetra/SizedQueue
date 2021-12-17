@@ -7,7 +7,7 @@ Suitable mostly for the ESP family (uses FreeRtos mutices for thread safety), Sh
 
 The circular array is statically allocated.
 
-Include and initialization
+Include and initialization:
 ```c
 #include <SizedQueue.h>
 
@@ -19,7 +19,7 @@ typedef struct {
 SizedQueue<_svals, 20> m_queue;
 ```
 
-Consumer thread example
+Consumer thread example:
 ```c
 static void show()
 {
@@ -34,7 +34,7 @@ static void show()
   }
 }
 ```
-Producer
+Producer:
 ```c
 void loop()
 {
