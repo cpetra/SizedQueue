@@ -50,12 +50,12 @@ void setup()
 }
 
 
-int i = 0;
+static int counter = 0;
 
 void loop()
 {
   _svals v;
-  v.v1 = i++;
+  v.v1 = counter++;
   v.v2 = random(100);
   m_queue.push(v);
   delay(100);
