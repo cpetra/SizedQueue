@@ -12,7 +12,7 @@ typedef struct {
     int v2;
 } _svals;
 
-SizedQueue<_svals> m_queue(20);
+SizedQueue<_svals, 20> m_queue;
 ```
 
 Consumer thread example
