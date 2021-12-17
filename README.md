@@ -1,7 +1,11 @@
 # SizedQueue
 An Arduino library.
+
 Fast FIFO based on circular buffer (if the queue is full, the oldest one will be overwritten by a "push").
+
 Suitable mostly for the ESP family (uses FreeRtos mutices for thread safety), Should also work with non-FreeRtos based controllers, but needs manual synchronization on access.
+
+The circular array is statically allocated.
 
 Include and initialization
 ```c
